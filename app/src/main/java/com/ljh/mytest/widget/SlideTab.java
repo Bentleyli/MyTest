@@ -66,15 +66,15 @@ public class SlideTab extends View {
         mCircleSelStroke = 10;
         mMarginTop = 50;*/
 
-        mColorTextDef = ta.getColor(R.styleable.SlidTab_textColorDef, Color.GRAY);
-        mColorSelected = ta.getColor(R.styleable.SlidTab_selectedColor, Color.BLUE);
-        mColorDef = ta.getColor(R.styleable.SlidTab_defColor, Color.argb(255,234,234,234));   //#EAEAEA
-        mTextSize = ta.getDimensionPixelSize(R.styleable.SlidTab_android_textSize, 45);
+        mColorTextDef = ta.getColor(R.styleable.SlideTab_textColorDef, Color.GRAY);
+        mColorSelected = ta.getColor(R.styleable.SlideTab_selectedColor, Color.BLUE);
+        mColorDef = ta.getColor(R.styleable.SlideTab_defColor, Color.argb(255,234,234,234));   //#EAEAEA
+        mTextSize = ta.getDimensionPixelSize(R.styleable.SlideTab_android_textSize, 45);
 
-        mLineHight = ta.getDimensionPixelSize(R.styleable.SlidTab_lintHight, 5);
-        mCircleHight = ta.getDimensionPixelSize(R.styleable.SlidTab_circleHight, 20);
-        mCircleSelStroke = ta.getDimensionPixelSize(R.styleable.SlidTab_circleSelStroke, 10);
-        mMarginTop = ta.getDimensionPixelSize(R.styleable.SlidTab_mMarginTop, 50);
+        mLineHight = ta.getDimensionPixelSize(R.styleable.SlideTab_lintHight, 5);
+        mCircleHight = ta.getDimensionPixelSize(R.styleable.SlideTab_circleHight, 20);
+        mCircleSelStroke = ta.getDimensionPixelSize(R.styleable.SlideTab_circleSelStroke, 10);
+        mMarginTop = ta.getDimensionPixelSize(R.styleable.SlideTab_mMarginTop, 50);
 
         ta.recycle();
 
@@ -223,6 +223,7 @@ public class SlideTab extends View {
 
     public void setTabNames(List<String> tabNames) {
         this.tabNames = tabNames;
+        setSelectedIndex(0);
         measureText();
         invalidate();
     }
@@ -232,6 +233,12 @@ public class SlideTab extends View {
     }
 
     public void setSelectedIndex(int selectedIndex) {
+        if(selectedIndex < 0){
+            selectedIndex = 0;
+        }
+        if(selectedIndex>=tabNames.size()){
+            selectedIndex = tabNames.size() - 1;
+        }
         this.selectedIndex = selectedIndex;
         invalidate();
     }
