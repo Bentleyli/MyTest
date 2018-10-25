@@ -3,6 +3,7 @@
 package com.ljh.mytest.widget;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -11,6 +12,8 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+
+import com.ljh.mytest.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +55,8 @@ public class SlideTab extends View {
     public SlideTab(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-        mColorTextDef = Color.GRAY;
+        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.SlideTab);
+        /*mColorTextDef = Color.GRAY;
         mColorSelected = Color.GREEN;
         mColorDef = Color.argb(255, 234, 234, 234);   //#EAEAEA
         mTextSize = 20;
@@ -60,7 +64,19 @@ public class SlideTab extends View {
         mLineHight = 5;
         mCircleHight = 20;
         mCircleSelStroke = 10;
-        mMarginTop = 50;
+        mMarginTop = 50;*/
+
+        mColorTextDef = ta.getColor(R.styleable.SlidTab_textColorDef, Color.GRAY);
+        mColorSelected = ta.getColor(R.styleable.SlidTab_selectedColor, Color.BLUE);
+        mColorDef = ta.getColor(R.styleable.SlidTab_defColor, Color.argb(255,234,234,234));   //#EAEAEA
+        mTextSize = ta.getDimensionPixelSize(R.styleable.SlidTab_android_textSize, 45);
+
+        mLineHight = ta.getDimensionPixelSize(R.styleable.SlidTab_lintHight, 5);
+        mCircleHight = ta.getDimensionPixelSize(R.styleable.SlidTab_circleHight, 20);
+        mCircleSelStroke = ta.getDimensionPixelSize(R.styleable.SlidTab_circleSelStroke, 10);
+        mMarginTop = ta.getDimensionPixelSize(R.styleable.SlidTab_mMarginTop, 50);
+
+        ta.recycle();
 
         mLinePaint = new Paint();
         mCirclePaint = new Paint();
@@ -146,7 +162,7 @@ public class SlideTab extends View {
                 mTextPaint.setColor(mColorSelected);
             }
 
-            float startX = 0;
+            float startX ;
             if (i == 0) {
                 startX = 0;
             } else if (i == tabNames.size() - 1) {

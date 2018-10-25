@@ -11,6 +11,13 @@
         android:id="@+id/slide_tab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FF0000"/>
+        android:textSize = "15sp"
+        app:textColorDef = "#A4A4A4"
+        app:defColor = "#EAEAEA"
+        app:selectedColor = "#5CBB8C"
+        app:lintHight = "2dip"
+        app:circleHight = "20dip"
+        app:circleSelStroke = "5dip"
+        app:mMarginTop = "15dip"/>
 
 </LinearLayout>
