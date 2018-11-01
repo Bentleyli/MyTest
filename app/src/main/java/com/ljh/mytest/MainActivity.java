@@ -1,9 +1,13 @@
 package com.ljh.mytest;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.ljh.mytest.db.MySqliteOpenHelper;
 import com.ljh.mytest.widget.SlideTab;
+
+import org.litepal.tablemanager.Connector;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
 
     private SlideTab slideTab;
     private List<String> tabNames = new ArrayList<>();
+    private MySqliteOpenHelper mySqliteOpenHelper;
+    private SQLiteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,5 +32,9 @@ public class MainActivity extends AppCompatActivity {
         slideTab = findViewById(R.id.slide_tab);
         slideTab.setTabNames(tabNames);
         slideTab.setSelectedIndex(2);
+
+        /*mySqliteOpenHelper = new MySqliteOpenHelper(this);
+        db = mySqliteOpenHelper.getWritableDatabase();*/
+        SQLiteDatabase db = Connector.getDatabase();
     }
 }

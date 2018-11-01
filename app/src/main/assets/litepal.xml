@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <dbname value="demo"/>
+
+    <version value="4"/>
+
+    <list>
+        <mapping class="com.ljh.mytest.db.model.News"/>
+        <mapping class="com.ljh.mytest.db.model.Comment"/>
+        <mapping class="com.ljh.mytest.db.model.Introduction"/>
+        <mapping class="com.ljh.mytest.db.model.Category"/>
+    </list>
+</litepal>
