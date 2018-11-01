@@ -1,9 +1,11 @@
 package com.ljh.mytest.db.model;
 
+import org.litepal.crud.LitePalSupport;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Category {
+public class Category extends LitePalSupport {
 
     private int id;
 

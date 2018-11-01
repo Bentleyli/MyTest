@@ -1,10 +1,12 @@
 package com.ljh.mytest.db.model;
 
+import org.litepal.crud.LitePalSupport;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class News {
+public class News extends LitePalSupport{
     private int id;
     private String title;
     private String content;

@@ -1,6 +1,8 @@
 package com.ljh.mytest.db.model;
 
-public class Introduction {
+import org.litepal.crud.LitePalSupport;
+
+public class Introduction extends LitePalSupport {
 
     private int id;
     private String guide;
