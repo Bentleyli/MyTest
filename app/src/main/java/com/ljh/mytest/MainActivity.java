@@ -10,6 +10,7 @@ import com.ljh.mytest.db.model.Comment;
 import com.ljh.mytest.db.model.News;
 import com.ljh.mytest.widget.SlideTab;
 
+import org.litepal.LitePal;
 import org.litepal.crud.LitePalSupport;
 import org.litepal.tablemanager.Connector;
 
@@ -43,7 +44,14 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase db = Connector.getDatabase();
 
 //        initData();
-        addMoreNews();
+//        addMoreNews();
+        updateNews();
+    }
+
+    private void updateNews() {
+        News news = LitePal.find(News.class,2);
+        news.setTitle("10月31 荣耀Magic 2 发布");
+        news.save();
     }
 
     private void addMoreNews() {
