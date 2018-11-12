@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
+import android.util.Log;
 
 public class AdImageViewVersion1 extends AppCompatImageView {
     public AdImageViewVersion1(Context context, @Nullable AttributeSet attrs) {
@@ -58,7 +59,7 @@ public class AdImageViewVersion1 extends AppCompatImageView {
     private int mDy;
 
     public void setDy(int dy) {
-
+        Log.e("AdImageViewVersion1查看", "dy"+dy);
         if (getDrawable() == null) {
             return;
         }

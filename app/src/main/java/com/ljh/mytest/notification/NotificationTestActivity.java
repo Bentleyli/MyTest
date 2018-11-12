@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,6 +72,7 @@ public class NotificationTestActivity extends AppCompatActivity implements View.
                     View view = linearLayoutManager.findViewByPosition(i);
                     AdImageViewVersion1 adImageView = view.findViewById(R.id.ad_iv);
                     if (adImageView.getVisibility() == View.VISIBLE) {
+                        Log.e("查看", "onScrolled: linearLayoutManager.getHeight()："+linearLayoutManager.getHeight()+"\tview.getTop()"+view.getTop());
                         adImageView.setDy(linearLayoutManager.getHeight() - view.getTop());
                     }
                 }
